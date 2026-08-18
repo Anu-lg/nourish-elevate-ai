@@ -115,12 +115,12 @@ export function Hero() {
           </div>
 
           {/* floating cards */}
-          <div className="absolute -left-4 top-16 hidden rounded-2xl border border-border bg-card px-4 py-3 shadow-soft float-slow sm:block">
+          <div className="absolute -left-6 bottom-24 hidden lg:-left-10 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft float-slow sm:block">
             <p className="flex items-center gap-2 text-xs font-semibold">
               <Flame className="size-4 text-accent" /> 2,850 kcal / day
             </p>
           </div>
-          <div className="absolute -right-3 bottom-10 hidden rounded-2xl border border-border bg-card px-4 py-3 shadow-soft float-slower sm:block">
+          <div className="absolute -right-4 -bottom-6 hidden lg:-right-10 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft float-slower sm:block">
             <p className="flex items-center gap-2 text-xs font-semibold">
               <Timer className="size-4 text-primary" /> 45 min sessions
             </p>
