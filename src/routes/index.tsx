@@ -1,24 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LandingPage } from "@/pages/LandingPage";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "NutriFlex AI — Personalized 7-Day Diet & Workout Plans" },
+      {
+        name: "description",
+        content:
+          "NutriFlex AI builds a personalized 7-day nutrition and workout plan around your body, fitness goal, activity level and vegetarian or non-vegetarian food preference.",
+      },
+      { property: "og:title", content: "NutriFlex AI — Personalized 7-Day Diet & Workout Plans" },
+      {
+        property: "og:description",
+        content:
+          "Get an AI-generated 7-day diet and workout plan tailored to your goals and food preferences.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: LandingPage,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
