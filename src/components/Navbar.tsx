@@ -54,7 +54,7 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <Button variant="hero" size="default" asChild>
-            <Link to="/create-plan">
+            <Link to="/login">
               Get Started <ArrowRight />
             </Link>
           </Button>
@@ -87,7 +87,7 @@ export function Navbar() {
             ))}
           </ul>
           <Button variant="hero" size="lg" className="mt-3 w-full" asChild>
-            <Link to="/create-plan" onClick={() => setOpen(false)}>
+            <Link to="/login" onClick={() => setOpen(false)}>
               Get Started <ArrowRight />
             </Link>
           </Button>

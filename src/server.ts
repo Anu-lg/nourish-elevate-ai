@@ -1,3 +1,30 @@
+// Load .env into process.env before anything else.
+// Vite only injects VITE_* vars into import.meta.env (client-side).
+// Server functions read raw process.env, so we must populate it here.
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+(function loadDotEnv() {
+  try {
+    const envPath = resolve(process.cwd(), ".env");
+    const lines = readFileSync(envPath, "utf-8").split("\n");
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith("#")) continue;
+      const eqIdx = trimmed.indexOf("=");
+      if (eqIdx === -1) continue;
+      const key = trimmed.slice(0, eqIdx).trim();
+      const val = trimmed.slice(eqIdx + 1).trim();
+      // Only set if not already in environment (OS env takes precedence)
+      if (key && !(key in process.env)) {
+        process.env[key] = val;
+      }
+    }
+  } catch {
+    // .env not found — rely on OS-level environment variables
+  }
+})();
+
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";

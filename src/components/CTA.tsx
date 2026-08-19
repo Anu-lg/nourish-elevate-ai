@@ -28,7 +28,7 @@ export function CTA() {
               className="relative mt-8 bg-card text-primary hover:bg-card/90 hover:-translate-y-0.5"
               asChild
             >
-              <Link to="/create-plan">
+              <Link to="/login">
                 Create My Personalized Plan <ArrowRight />
               </Link>
             </Button>

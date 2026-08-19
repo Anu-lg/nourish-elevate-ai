@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CreatePlanRouteImport } from './routes/create-plan'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MyPlanRouteImport } from './routes/my-plan'
+import { Route as RegisterRouteImport } from './routes/register'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +25,58 @@ const CreatePlanRoute = CreatePlanRouteImport.update({
   path: '/create-plan',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyPlanRoute = MyPlanRouteImport.update({
+  id: '/my-plan',
+  path: '/my-plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/create-plan': typeof CreatePlanRoute
+  '/login': typeof LoginRoute
+  '/my-plan': typeof MyPlanRoute
+  '/register': typeof RegisterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/create-plan': typeof CreatePlanRoute
+  '/login': typeof LoginRoute
+  '/my-plan': typeof MyPlanRoute
+  '/register': typeof RegisterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/create-plan': typeof CreatePlanRoute
+  '/login': typeof LoginRoute
+  '/my-plan': typeof MyPlanRoute
+  '/register': typeof RegisterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/create-plan'
+  fullPaths: '/' | '/create-plan' | '/login' | '/my-plan' | '/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/create-plan'
-  id: '__root__' | '/' | '/create-plan'
+  to: '/' | '/create-plan' | '/login' | '/my-plan' | '/register'
+  id: '__root__' | '/' | '/create-plan' | '/login' | '/my-plan' | '/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CreatePlanRoute: typeof CreatePlanRoute
+  LoginRoute: typeof LoginRoute
+  MyPlanRoute: typeof MyPlanRoute
+  RegisterRoute: typeof RegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +95,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreatePlanRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-plan': {
+      id: '/my-plan'
+      path: '/my-plan'
+      fullPath: '/my-plan'
+      preLoaderRoute: typeof MyPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CreatePlanRoute: CreatePlanRoute,
+  LoginRoute: LoginRoute,
+  MyPlanRoute: MyPlanRoute,
+  RegisterRoute: RegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

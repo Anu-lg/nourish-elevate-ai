@@ -50,7 +50,7 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button variant="hero" size="xl" asChild>
-              <Link to="/create-plan">
+              <Link to="/login">
                 Create My Plan <ArrowRight />
               </Link>
             </Button>
