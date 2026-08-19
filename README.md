@@ -340,30 +340,6 @@ Do not use unnecessary backend/API functionality for the landing page yet.
 
 The “Create My Plan” and “Get Started” buttons should be prepared to navigate to a future profile-input page where the user will enter their age, height, weight, food type, fitness goal and workout preferences.
 
-IMPORTANT
-
-This is an interview assignment, so prioritize:
-
-Excellent UI/UX
-
-Clean React code
-
-Responsive design
-
-Clear project purpose
-
-Professional visual presentation
-
-A realistic AI-product feel
-
-Easy integration with the future diet/workout generation functionality
-
-Do not build the complete AI backend yet.
-
-First create the landing page and make it visually impressive and fully responsive.
-
-This project was built with [Lovable](https://lovable.dev).
-
 ## Build with Lovable
 
 Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0c42bf3e-274f-48aa-b92b-f3e6af340038).
